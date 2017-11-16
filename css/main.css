@@ -25,4 +25,19 @@
     top: 50%;
     transform: translate(-50%, -50%);
     background: lightpink;
+    display: none;
+}
+
+.display__menu--is-open {
+    display: block;
+}
+
+.display__open-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: lightcyan;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
