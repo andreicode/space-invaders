@@ -52,9 +52,8 @@ function init() {
 }
 
 function start() {
-    // Aditional Set-up ...
     __camera.position.z = 100;
-    Scene.load('menu-group');
+    Scene.load('invader-1');
     game();
 }
 
@@ -76,6 +75,6 @@ start();
 var testListItems = document.getElementsByClassName('test__item');
 for (var i = 0; i < testListItems.length; i++) {
     testListItems[i].addEventListener('click', function(ev){
-        Scene.load(ev.srcElement.dataset['scene']);
+        Scene.load(ev.target.dataset['scene']);
     });
 }
