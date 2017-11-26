@@ -50,31 +50,49 @@ Assets.register({
             this.object._methods.setActive(cursor+1);
         }.bind(this);
 
+        this.object._methods.selectItem = function () {
+            var cursor = this.object._methods.getCursor();
+            Scene.load(this.object._store.labels[cursor].scene);
+
+         
+        }.bind(this);
+
         this.object._store.labels = [
-            {
-                text: 'New Game',
-                scene: 'game',
-                cursor: true,
-            },
-            {
-                text: 'Options',
-                scene: 'options',
-                cursor: false,
-            },
-            {
-                text: 'High Score',
-                scene: 'high-score',
-                cursor: false,
-            }
+            // {
+            //     text: 'New Game',
+            //     scene: 'game',
+            //     cursor: true,
+            // },
+            // {
+            //     text: 'Options',
+            //     scene: 'options',
+            //     cursor: false,
+            // },
+            // {
+            //     text: 'High Score',
+            //     scene: 'high-score',
+            //     cursor: false,
+            // }
+                
+
         ];
 
         var position = 0;
 
-        for (var i = 0; i < this.object._store.labels.length; i++) {
-            this.object._store.labels[i].object = Assets.create('text-label', {
-                text: this.object._store.labels[i]['text'],
-                color: __CONFIG['color-primary'],
-            });
+        for (var i = 0; i < options.labels.length; i++) {
+
+            this.object._store.labels[i] = {
+                text: options.labels[i]['text'],
+                scene: options.labels[i]['scene'],
+                cursor: false, 
+                object: Assets.create('text-label', {
+                    text: options.labels[i]['text'],
+                    color: __CONFIG['color-primary'],
+                })
+            };
+
+
+
             this.object._store.labels[i].object.position.y = position;
             this.object.add(this.object._store.labels[i].object);
             position -= 20;
@@ -93,6 +111,12 @@ Assets.register({
                 this.object._methods.moveDown();
                 this.object._methods.throttleMove();
             }
+        } else if(Input.isPressed('Enter')) {
+            if(!this.object._store.moveTimeOut) {
+                this.object._methods.selectItem();
+                this.object._methods.throttleMove();
+            }
+
         }
     }
 });

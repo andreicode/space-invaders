@@ -54,7 +54,7 @@ function init() {
 function start() {
     // Aditional Set-up ...
     __camera.position.z = 100;
-    Scene.load('menu-group');
+    Scene.load('header');
     game();
 }
 
@@ -65,6 +65,7 @@ function start() {
 function game() {
     requestAnimationFrame(game);
     Scene.active._update();
+    TWEEN.update();
     __controls.update();
     __renderer.render(Scene.active.scene, __camera);
 }
