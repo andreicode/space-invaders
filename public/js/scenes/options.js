@@ -16,7 +16,7 @@ Scene.register({
                     text: 'Keyboard',
                     scene: 'keyboard',
                 },
-                {   
+                {
                     text: 'Controller',
                     scene: undefined
                 },
@@ -25,16 +25,17 @@ Scene.register({
                     scene: 'main-menu'
                 }
             ]
-        
+
         });
-        menu.position.x = -50; 
+        menu.position.x = -50;
         menu.position.y = 0;
-        
+
         this.scene.add(header);
         this.scene.add(menu);
 
     },
     update: function () {
+        console.log('options')
         if (Input.isPressed('ArrowRight')) {
             Scene.load('game');
         }

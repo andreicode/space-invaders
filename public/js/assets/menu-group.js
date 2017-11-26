@@ -54,7 +54,7 @@ Assets.register({
             var cursor = this.object._methods.getCursor();
             Scene.load(this.object._store.labels[cursor].scene);
 
-         
+
         }.bind(this);
 
         this.object._store.labels = [
@@ -73,7 +73,7 @@ Assets.register({
             //     scene: 'high-score',
             //     cursor: false,
             // }
-                
+
 
         ];
 
@@ -84,7 +84,7 @@ Assets.register({
             this.object._store.labels[i] = {
                 text: options.labels[i]['text'],
                 scene: options.labels[i]['scene'],
-                cursor: false, 
+                cursor: false,
                 object: Assets.create('text-label', {
                     text: options.labels[i]['text'],
                     color: __CONFIG['color-primary'],
