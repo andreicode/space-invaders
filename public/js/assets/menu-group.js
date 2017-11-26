@@ -71,7 +71,7 @@ Assets.register({
         var position = 0;
 
         for (var i = 0; i < this.object._store.labels.length; i++) {
-            this.object._store.labels[i].object = Assets.create('menu-label', {
+            this.object._store.labels[i].object = Assets.create('text-label', {
                 text: this.object._store.labels[i]['text'],
                 color: __CONFIG['color-primary'],
             });

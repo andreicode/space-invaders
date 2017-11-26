@@ -1,5 +1,5 @@
 Assets.register({
-    name: 'menu-label',
+    name: 'text-label',
     init: function(options) {
 
         var geometry = new THREE.Geometry();

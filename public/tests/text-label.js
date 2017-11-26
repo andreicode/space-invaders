@@ -1,7 +1,7 @@
 Scene.register({
-    name: 'menu-label',
+    name: 'text-label',
     init: function () {
-        var text = Assets.create('menu-label', {
+        var text = Assets.create('text-label', {
             text: 'New Game',
             color: __CONFIG['color-primary'],
             type: 'normal',
