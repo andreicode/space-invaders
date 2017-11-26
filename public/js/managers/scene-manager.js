@@ -6,6 +6,8 @@ var Scene = {
             if (name === this.store[i].name) {
                 this.active = CreateScene(this.store[i]);
                 this.active.init();
+                var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+                this.active.scene.add( light );
                 return;
             }
         }
