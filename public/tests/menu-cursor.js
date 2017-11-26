@@ -2,8 +2,12 @@ Scene.register({
     name: 'menu-cursor',
     init: function () {
         var text = Assets.create('menu-cursor', {
-            color: __CONFIG['color-accent'],
+        	text: '>',
+            color: __CONFIG['color-primary'],
+            type: 'normal',
+            center: true	
         });
+
         this.scene.add(text);
     },
     update: function () {
