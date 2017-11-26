@@ -12,5 +12,5 @@ var Scene = {
     },
     register: function (scene) {
         this.store.push(scene);
-    }
+    },
 }

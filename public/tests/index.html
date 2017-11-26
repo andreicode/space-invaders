@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="../css/main.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    </head>
+    <body>
+        <div class="display">
+            <div class="display__main">
+                <canvas class="display__canvas"></canvas>
+            </div>
+        </div>
+        <div class="test">
+            <ul class="test__list">
+                <li class="test__item" data-scene="menu-label">Menu Label</li>
+                <li class="test__item" data-scene="menu-cursor">Menu Cursor</li>
+                <li class="test__item" data-scene="test-scene-2">Menu Group</li>
+            </ul>
+        </div>
+        <script src="../vendor/three.js"></script>
+        <script src="../vendor/OrbitControls.js"></script>
+
+        <script src="../js/config.js"></script>
+
+
+        <script src="../js/managers/input-manager.js"></script>
+        <script src="../js/managers/scene-manager.js"></script>
+        <script src="../js/managers/assets-manager.js"></script>
+
+        <script src="../js/assets/_asset.js"></script>
+        <script src="../js/assets/cube.js"></script>
+        <script src="../js/assets/menu-label.js"></script>
+        <script src="../js/assets/menu-cursor.js"></script>
+
+
+
+        <script src="../js/scenes/_scene.js"></script>
+        <script src="menu-label.js"></script>
+        <script src="menu-cursor.js"></script>
+        <script src="test-scene-2.js"></script>
+
+
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "space-invaders",
+  "version": "1.0.0",
+  "description": "* [Markdown Syntax - used to write in this README.md](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis)\r * [ThreeJS - main graphics library](https://threejs.org/)",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreicode/space-invaders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreicode/space-invaders/issues"
+  },
+  "homepage": "https://github.com/andreicode/space-invaders#readme"
+}
