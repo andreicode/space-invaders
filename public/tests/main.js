@@ -54,7 +54,7 @@ function init() {
 function start() {
     // Aditional Set-up ...
     __camera.position.z = 100;
-    Scene.load('menu-label');
+    Scene.load('menu-group');
     game();
 }
 

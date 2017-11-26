@@ -4,4 +4,5 @@ var __CONFIG = {
     'color-primary': 0x00BA66,
     'color-accent': 0x71F79F,
     'font-size': 11,
+    'font-size-header': 18,
 }

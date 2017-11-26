@@ -11,7 +11,7 @@ Assets.register({
 
             this.object.geometry = new THREE.TextGeometry(options.text, {
                 font: font,
-                size: __CONFIG['font-size'],
+                size: options.type === 'header' ? __CONFIG['font-size-header'] :__CONFIG['font-size'],
                 height: 1,
                 curveSegments: 4,
                 material: 0,
@@ -19,12 +19,16 @@ Assets.register({
             });
             this.object.geometry.computeFaceNormals();
             this.object.geometry.computeVertexNormals();
-            this.object.geometry.computeBoundingBox();
             this.object.geometry.normalsNeedUpdate = true;
             this.object.geometry.verticesNeedUpdate = true;
             this.object.geometry.dynamic = true;
-            var width = this.object.geometry.boundingBox.max.x - this.object.geometry.boundingBox.min.x
-            this.object.position.x = 0 - width / 2;
+
+            if (options.center) {
+                this.object.geometry.computeBoundingBox();
+                var width = this.object.geometry.boundingBox.max.x - this.object.geometry.boundingBox.min.x;
+                this.object.position.x = 0 - width / 2;
+            }
+
         }.bind(this));
     },
     update: function() {
