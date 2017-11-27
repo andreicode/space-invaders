@@ -63,7 +63,6 @@ Scene.register({
         // lives.add(liveLight);
 
 
-        // this.scene.add(score);
         this.scene.scale.set(0.7,0.7,0.7);
 
         var light2 = new THREE.PointLight( 0xffffff, 1, 100);
