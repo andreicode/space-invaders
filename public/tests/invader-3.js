@@ -8,7 +8,7 @@ Scene.register({
         invader.position.x = invader.position.x - 5;
         invader.position.y = invader.position.y + 6;
 
-        var light = new THREE.PointLight( 0xffffff, 1, 100 );
+        var light = new THREE.PointLight( 0xffffff, 1, 200 );
         light.position.set(0, -50, 50);
         this.scene.add(light);
 
