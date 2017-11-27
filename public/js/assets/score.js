@@ -5,18 +5,13 @@ Assets.register({
 
         this.object._store = {};
         this.object._store.points = 0;
-        this.object._store.score_label = Assets.create('text-label', {
+        this.object._store.score = Assets.create('text-label', {
             color: __CONFIG['color-primary'],
-            text: 'Score: ',
+            text: options.text,
+            type: 'normal',
         });
 
-        this.object._store.score_value = Assets.create('text-label', {
-            color: __CONFIG['color-primary'],
-            text: '0',
-        });
-
-        this.object.add(this.object._store.score_label);
-        this.object.add(this.object._store.score_label);
+        this.object.add(this.object._store.score);
     },
     update: function() {
 
