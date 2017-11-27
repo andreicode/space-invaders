@@ -10,13 +10,6 @@ Scene.register({
 
 		this.scene.add(TEXT);
 
-    	// setInterval(
-    	// 	function() {
-    	// 		this.object.material.color.setHex(__CONFIG['color-primary']);
-    	// 		console.log("primary");
-    	// 	},
-    	// 	2000
-    	// );
     },
     update: function () {
 
