@@ -1,6 +1,24 @@
+body {
+    background: #f5deb2;
+}
+
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 1080px;
+}
+
+.arcade {
+    position: absolute;
+    top: 0;
+    left: -2px;
+}
+
 .display {
     width: 900px;
     height: 600px;
+    top: 280px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
