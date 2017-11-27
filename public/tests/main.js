@@ -53,7 +53,7 @@ function init() {
 
 function start() {
     __camera.position.z = 150;
-    Scene.load('life');
+    Scene.load('lives');
     game();
 }
 
