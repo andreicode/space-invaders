@@ -9,7 +9,7 @@ Scene.register({
         UFO_bullet.position.x += 0;
         UFO_bullet.position.y += 2;
 
-        var light = new THREE.PointLight( 0xffffff, 1, 100 );
+        var light = new THREE.PointLight( 0xffffff, 1, 200 );
         light.position.set(0, -50, 50);
         this.scene.add(light);
 
