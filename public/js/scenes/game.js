@@ -52,9 +52,11 @@ Scene.register({
         this.scene._store.time = 0;
         this.scene._store.direction = 0;
 
+        Music.play('spaceinvaders1.mp3');
     },
     update: function () {
         if(Input.isPressed('Escape')) {
+            Music.stop('spaceinvaders1.mp3');
             Scene.load('main-menu');
         }
 

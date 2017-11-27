@@ -17,7 +17,7 @@ Scene.register({
                     scene: 'keyboard',
                 },
                 {
-                    text: 'Controller',
+                    text: 'Music On',
                     scene: undefined
                 },
                 {
