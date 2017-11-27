@@ -35,9 +35,6 @@ Scene.register({
 
     },
     update: function () {
-        console.log('options')
-        if (Input.isPressed('ArrowRight')) {
-            Scene.load('game');
-        }
+
     }
 });

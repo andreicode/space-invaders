@@ -16,7 +16,7 @@ Scene.register({
                     text: '2. Andrei 90',
                     scene: undefined,
                 },
-                {   
+                {
                     text: '3. Petru 80',
                     scene: undefined
                 },
@@ -25,18 +25,16 @@ Scene.register({
                     scene: 'main-menu'
                 }
             ]
-        
+
         });
-        menu.position.x = -50; 
+        menu.position.x = -50;
         menu.position.y = 0;
-        
+
         this.scene.add(header);
         this.scene.add(menu);
 
     },
     update: function () {
-        if (Input.isPressed('ArrowRight')) {
-            Scene.load('game');
-        }
+
     }
 });

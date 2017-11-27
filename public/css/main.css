@@ -1,4 +1,4 @@
-body {
+.body-background {
     background: #f5deb2;
 }
 
@@ -30,6 +30,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+
+.display--tests {
+    top: 0;
 }
 
 .display__main {
