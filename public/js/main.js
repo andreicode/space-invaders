@@ -65,6 +65,7 @@ function start() {
     __controls.enablePan = false;
     __controls.enableRotation = false;
 
+    Music.play('spaceinvaders1.mp3');
 
     Scene.load('main-menu');
     game();
