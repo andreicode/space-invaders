@@ -2,7 +2,7 @@ Scene.register({
     name: 'main-menu',
     init: function () {
         var header = Assets.create('header', {text: 'Space Invaders'});
-        header.position.x = -105;
+        header.position.x = -145;
         header.position.y = 40;
 
 

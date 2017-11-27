@@ -3,8 +3,8 @@ Scene.register({
     init: function () {
 
         var header = Assets.create('header', {text: 'Options'});
-        header.position.x = -60;
-        header.position.y = 40;
+        header.position.x = -80;
+        header.position.y = 50;
 
         var menu = Assets.create('menu-group', {
             labels: [

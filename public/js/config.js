@@ -9,6 +9,6 @@ var __CONFIG = {
     'color-turret': 0x71F79F,
     'color-building': 0x00AF60,
     'font-size': 11,
-    'font-size-header': 14,
+    'font-size-header': 20,
     'speed': 16,
 }
