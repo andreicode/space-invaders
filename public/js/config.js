@@ -6,9 +6,9 @@ var __CONFIG = {
     'color-invader1': 0xFFE74C,
     'color-invader2': 0xED7D3A,
     'color-invader3': 0xEF2D56,
-    'color-turret': 0x00AF60,
-    'color-building': 0x71F79F,
+    'color-turret': 0x71F79F,
+    'color-building': 0x00AF60,
     'font-size': 11,
     'font-size-header': 14,
-    'speed': 17,
+    'speed': 16,
 }

@@ -17,8 +17,8 @@ Assets.register({
             [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0],
-            
-            
+
+
         ];
 
 
@@ -33,6 +33,10 @@ Assets.register({
                 }
             }
         }
+
+        var liveLight = new THREE.PointLight( 0xffffff, 0.7, 50);
+        liveLight.position.z = 10;
+        this.object.add(liveLight);
 
     },
     update: function () {

@@ -45,6 +45,23 @@ Scene.register({
         score.rotateX(1);
         this.scene.add(score);
 
+        var lives = Assets.create('lives');
+        lives.position.y = 250;
+        lives.position.x = 90;
+        lives.scale.set(2,2,2);
+        lives.rotateX(1);
+        this.scene.add(lives);
+
+        // var liveLight = new THREE.PointLight( 0xffffff, 1.5, 200);
+        // // liveLight.position.set(0, 20, 100);
+        // liveLight.position.z += 100;
+        // // liveLight.position.y += 50;
+        // liveLight.position.x += 70;
+        //
+        // liveLight.rotateX(1);
+        // // liveLight.lookAt(lives);
+        // lives.add(liveLight);
+
 
         // this.scene.add(score);
         this.scene.scale.set(0.7,0.7,0.7);
