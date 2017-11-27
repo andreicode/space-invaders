@@ -12,7 +12,7 @@ Scene.register({
             ]
         });
 
-        
+
         this.scene.add(score);
 
         var light = new THREE.PointLight( 0xffffff, 1, 200 );
