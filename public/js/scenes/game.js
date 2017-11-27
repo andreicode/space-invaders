@@ -13,21 +13,25 @@ Scene.register({
 
 
 
-        var turret = Assets.create('turret');
+        var turret = Assets.create('turret', {
+            color: __CONFIG['color-turret'],
+        });
         turret.position.x = -7;
         turret.position.y = -85;
         this.scene.add(turret);
         this.scene._store.turret = turret;
         var light = new THREE.PointLight( 0xffffff, 1.2, 200 );
         light.position.set(0, -50, 50);
-        // this.scene.add(light);
+        this.scene.add(light);
         this.scene._store.turret.add(light);
 
 
         var posy = -60;
         var posx = -100;
         for (var i = 0; i < 4; i++) {
-            var building = Assets.create('building');
+            var building = Assets.create('building', {
+                color: __CONFIG['color-building'],
+            });
             building.position.x = posx;
             building.position.y = posy;
             this.scene.add(building);

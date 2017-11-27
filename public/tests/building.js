@@ -3,6 +3,7 @@ Scene.register({
     init: function () {
         var building = Assets.create('building', {
             center: true,
+            color: __CONFIG['color-building'],
         });
         this.scene.add(building);
         building.position.x = building.position.x - 10;

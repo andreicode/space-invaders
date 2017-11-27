@@ -3,6 +3,7 @@ Scene.register({
     init: function () {
         var invader = Assets.create('turret', {
             center: true,
+            color: __CONFIG['color-turret'],
         });
         this.scene.add(invader);
         invader.position.x = invader.position.x - 5;
