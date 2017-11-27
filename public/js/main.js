@@ -63,7 +63,7 @@ function start() {
     __camera.position.y = -70;
     __controls.enableZoom = false;
     __controls.enablePan = false;
-    __controls.enableRotation = false;
+    __controls.enableRotate = false;
 
     Scene.load('main-menu');
     game();

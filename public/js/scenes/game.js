@@ -45,7 +45,17 @@ Scene.register({
         // this.scene.add(score);
         this.scene.scale.set(0.7,0.7,0.7);
 
+        var light2 = new THREE.PointLight( 0xffffff, 1, 100);
+        light2.position.set(0, 20, 100);
+        this.scene.add(light2);
 
+        var light3 = new THREE.PointLight( 0xffffff, 1, 100 );
+        light3.position.set(100, 20, 100);
+        this.scene.add(light3);
+
+        var light4 = new THREE.PointLight( 0xffffff, 1, 100 );
+        light4.position.set(-100, 20, 100);
+        this.scene.add(light4);
 
 
 
@@ -89,7 +99,7 @@ Scene.register({
         }
 
         this.scene._store.time += 1;
-        if(this.scene._store.time  === 15) {
+        if(this.scene._store.time  === __CONFIG['speed']) {
             this.scene._store.group.position.x += this.scene._store.direction === 0 ? -10 : 10;
             this.scene._store.steps += 1;
             this.scene._store.time = 0;

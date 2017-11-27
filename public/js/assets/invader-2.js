@@ -43,7 +43,7 @@ Assets.register({
     },
     update: function () {
         this.object._store.time += 1;
-        if (this.object._store.time === 50) {
+        if (this.object._store.time === __CONFIG['speed']) {
 
             if (this.object._store.state === 0) {
                 this.object._store.arr[8][4].position.x -= 1;

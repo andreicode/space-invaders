@@ -6,4 +6,5 @@ var __CONFIG = {
     'color-enemy2': 0x8AD48C,
     'font-size': 11,
     'font-size-header': 14,
+    'speed': 17,
 }
