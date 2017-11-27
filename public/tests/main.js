@@ -52,7 +52,7 @@ function init() {
 }
 
 function start() {
-    __camera.position.z = 100;
+    __camera.position.z = 20;
     Scene.load('invader-1');
     game();
 }
