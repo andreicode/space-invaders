@@ -98,6 +98,7 @@
     padding-top: 14px;
 }
 
+
 .test__item::before {
     content: '';
     width: 160px;
@@ -112,10 +113,10 @@
     display: none;
 }
 
-.test__item:hover {
+.test__item:hover, .test__item--active {
     background: #0084b4;
 }
 
-.test__item:hover::before {
+.test__item:hover::before, .test__item--active::before {
     display: none;
 }

@@ -64,7 +64,6 @@ function start() {
 function game() {
     requestAnimationFrame(game);
     Scene.active._update();
-    TWEEN.update();
     __controls.update();
     __renderer.render(Scene.active.scene, __camera);
 }
@@ -77,5 +76,10 @@ var testListItems = document.getElementsByClassName('test__item');
 for (var i = 0; i < testListItems.length; i++) {
     testListItems[i].addEventListener('click', function(ev){
         Scene.load(ev.target.dataset['scene']);
+        var el = document.querySelector('.test__item--active');
+        if (el) {
+            el.className = 'test__item';
+        }
+        ev.target.className = 'test__item test__item--active';
     });
 }
