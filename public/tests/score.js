@@ -1,18 +1,8 @@
 Scene.register({
     name: 'score',
     init: function () {
-        var score = Assets.create('score', {
-            labels: [
-                {
-                    text: 'Score: ',
-                },
-                {
-                    text: '0',
-                },
-            ]
-        });
 
-        
+        var score = Assets.create('score');
         this.scene.add(score);
 
         var light = new THREE.PointLight( 0xffffff, 1, 200 );
