@@ -34,12 +34,9 @@ Scene.register({
             posx += 60;
         }
 
-        // var score = Assets.create('score');
-        //
-        // this.scene.add(score);
-
-
-
+        var score = Assets.create('score');
+        score.position.y = 100;
+        this.scene.add(score);
 
 
         // this.scene.add(score);
