@@ -29,7 +29,9 @@ Assets.register({
 
             for (var j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] === 1) {
-                    var mesh = Assets.create('block-component');
+                    var mesh = Assets.create('block-component', {
+                        color: options ? options.color: undefined,
+                    });
                     mesh.position.x = j;
                     mesh.position.y = -i;
                     this.object.add(mesh);
@@ -49,19 +51,19 @@ Assets.register({
                 this.object._store.arr[9][1].position.x += 3;
                 this.object._store.arr[9][11].position.x -= 3;
                 this.object._store.arr[9][10].position.x -= 3;
-                
 
 
-                
+
+
 
                 this.object._store.state = 1;
             } else {
-                
+
                 this.object._store.arr[9][0].position.x -= 3;
                 this.object._store.arr[9][1].position.x -= 3;
                 this.object._store.arr[9][11].position.x += 3;
                 this.object._store.arr[9][10].position.x += 3;
-                
+
 
 
                 this.object._store.state = 0;

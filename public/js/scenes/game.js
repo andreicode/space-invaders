@@ -35,7 +35,10 @@ Scene.register({
         }
 
         var score = Assets.create('score');
-        score.position.y = 100;
+        score.position.y = 200;
+        score.position.x = -220;
+        score.scale.set(2,2,2);
+        score.rotateX(1);
         this.scene.add(score);
 
 
