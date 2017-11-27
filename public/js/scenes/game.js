@@ -11,11 +11,17 @@ Scene.register({
         this.scene._store.group = group;
 
 
+
+
         var turret = Assets.create('turret');
         turret.position.x = -7;
         turret.position.y = -85;
         this.scene.add(turret);
         this.scene._store.turret = turret;
+        var light = new THREE.PointLight( 0xffffff, 1.2, 200 );
+        light.position.set(0, -50, 50);
+        // this.scene.add(light);
+        this.scene._store.turret.add(light);
 
 
         var posy = -60;
@@ -29,7 +35,7 @@ Scene.register({
         }
 
         // var score = Assets.create('score');
-
+        //
         // this.scene.add(score);
 
 
@@ -39,9 +45,7 @@ Scene.register({
         // this.scene.add(score);
         this.scene.scale.set(0.7,0.7,0.7);
 
-        var light = new THREE.PointLight( 0xffffff, 1, 200 );
-        light.position.set(0, -50, 50);
-        this.scene.add(light);
+
 
 
 
@@ -55,17 +59,19 @@ Scene.register({
         }
 
         if(Input.isPressed('ArrowLeft')) {
-            this.scene._store.turret.position.x -= 4;
+            if (this.scene._store.turret.position.x > -110) {
+                this.scene._store.turret.position.x -= 4;
+            }
         }
 
         if(Input.isPressed('ArrowRight')) {
-            this.scene._store.turret.position.x += 4;
+            if (this.scene._store.turret.position.x < 120) {
+                this.scene._store.turret.position.x += 4;
+            }
         }
 
         if (this.scene._store.time === 100) {
             if (this.scene._store.direction === 0) {
-
-
                 this.scene._store.direction = 1;
             } else {
 
@@ -74,11 +80,18 @@ Scene.register({
             this.scene._store.time = 0;
         }
 
-    
+        if (this.scene._store.group.position.x < -180) {
+            this.scene._store.direction = 1;
+        } else if (this.scene._store.group.position.x > -50) {
+            this.scene._store.direction = 0;
+        }
+
         this.scene._store.time += 1;
         if(this.scene._store.time  === 15) {
             this.scene._store.group.position.x += this.scene._store.direction === 0 ? -10 : 10;
+            this.scene._store.steps += 1;
             this.scene._store.time = 0;
         }
+
     }
 });
