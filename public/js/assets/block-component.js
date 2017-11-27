@@ -1,5 +1,5 @@
 Assets.register({
-    name: 'invader-component',
+    name: 'block-component',
     init: function (options) {
 
         var geometry = new THREE.BoxGeometry( 1, 1, 1);
