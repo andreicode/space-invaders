@@ -1,16 +1,12 @@
 Scene.register({
     name: 'score',
     init: function () {
-        var score_text = Assets.create('text-label', {
+        var score_text = Assets.create('score', {
             text: 'Score:',
-            color: __CONFIG['color-primary'],
-            type: 'normal',
         });
 
-        var score = Assets.create('text-label', {
+        var score = Assets.create('score', {
             text: '0',
-            color: __CONFIG['color-primary'],
-            type: 'normal',
         });
 
         score_text.position.x = -150;
