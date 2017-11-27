@@ -5,12 +5,12 @@ Assets.register({
         this.object._store = {};
 
         var arr = [
-            [0, 1],
-            [0, 1],
-            [0, 1],
-            [0, 1],
-            [0, 1],
-            [0, 1],
+            [1, 1],
+            [1, 1],
+            [1, 1],
+            [1, 1],
+            [1, 1],
+            [1, 1],
         ];
 
         this.object._store.arr = [];
