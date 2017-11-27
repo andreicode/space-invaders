@@ -34,12 +34,12 @@ Scene.register({
             posx += 60;
         }
 
-        // var score = Assets.create('score');
-        //
-        // this.scene.add(score);
-
-
-
+        var score = Assets.create('score');
+        score.position.y = 200;
+        score.position.x = -220;
+        score.scale.set(2,2,2);
+        score.rotateX(1);
+        this.scene.add(score);
 
 
         // this.scene.add(score);
