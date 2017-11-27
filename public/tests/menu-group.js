@@ -19,7 +19,8 @@ Scene.register({
             ]
 
         });
-        menu.position.x = -40;
+        menu.position.x = -60;
+        menu.position.y = 15;
         this.scene.add(menu);
 
     },
