@@ -16,9 +16,9 @@ Assets.register({
         });
 
         this.object.add(this.object._store.score_label);
-        this.object.add(this.object._store.score_value);
+        this.object.add(this.object._store.score_label);
     },
     update: function() {
-        
+
     }
 });
