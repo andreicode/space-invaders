@@ -52,17 +52,6 @@ Scene.register({
         lives.rotateX(1);
         this.scene.add(lives);
 
-        // var liveLight = new THREE.PointLight( 0xffffff, 1.5, 200);
-        // // liveLight.position.set(0, 20, 100);
-        // liveLight.position.z += 100;
-        // // liveLight.position.y += 50;
-        // liveLight.position.x += 70;
-        //
-        // liveLight.rotateX(1);
-        // // liveLight.lookAt(lives);
-        // lives.add(liveLight);
-
-
         this.scene.scale.set(0.7,0.7,0.7);
 
         var light2 = new THREE.PointLight( 0xffffff, 1, 100);
