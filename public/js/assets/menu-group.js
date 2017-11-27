@@ -99,6 +99,7 @@ Assets.register({
         }
 
         this.object._methods.setActive(0);
+        this.object._methods.throttleMove();
     },
     update: function() {
         if (Input.isPressed('ArrowUp')) {
