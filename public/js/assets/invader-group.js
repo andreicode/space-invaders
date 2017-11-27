@@ -20,15 +20,21 @@ Assets.register({
             for (var j = 0; j < arr[i].length; j++) {
 
                 if (arr[i][j] === 1) {
-                    this.object._store.invaders[i][j] = Assets.create('invader-2');
+                    this.object._store.invaders[i][j] = Assets.create('invader-2', {
+                        color: __CONFIG['color-invader2'],
+                    });
 
                 } else if (arr[i][j] === 2) {
 
-                    this.object._store.invaders[i][j] = Assets.create('invader-1');
+                    this.object._store.invaders[i][j] = Assets.create('invader-1', {
+                        color: __CONFIG['color-invader1'],
+                    });
 
                 } else if (arr[i][j] === 3) {
 
-                    this.object._store.invaders[i][j] = Assets.create('invader-3');
+                    this.object._store.invaders[i][j] = Assets.create('invader-3', {
+                        color: __CONFIG['color-invader3'],
+                    });
                 }
 
                 this.object._store.invaders[i][j].position.x = posx;
