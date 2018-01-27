@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	
+
 	<title>FII Invaders - Scholarly Raport</title>
-    
+
 	<link rel="stylesheet" href="css/scholarly.css">
 	<link rel="stylesheet" href="http://scholarly.vernacular.io/scholarly.css">
-    
+
 	<!--<script src="node_modules/prismjs/prism.js" defer></script>-->
 
 </head>
@@ -16,7 +16,7 @@
 	<header>
 		<p class="title"><center>FII Invaders</center></p>
 	</header>
-    
+
 	<article id="what" typeof="schema:ScholarlyArticle" resource="#">
 	<h1>FII Invaders</h1>
 	<section>
@@ -28,7 +28,7 @@
 				</a>
 				<a href="#" property="sa:roleAffiliation" resource="http://science.ai/"></a>
 			</li>
-			
+
 			<li property="schema:contributor" typeof="sa:ContributorRole">
 				<a property="schema:contributor" href="https://github.com/karinamatrana" typeof="schema:Person">
 					<span property="schema:familyName">Matrana</span>
@@ -36,7 +36,7 @@
 				</a>
 				<a href="#" property="sa:roleAffiliation" resource="http://science.ai/"></a>
 			</li>
-			
+
 			<li property="schema:contributor" typeof="sa:ContributorRole">
 				<a property="schema:contributor" href="https://github.com/tpetru" typeof="schema:Person">
 					<span property="schema:givenName">Petru</span>
@@ -45,7 +45,7 @@
 				<a href="#" property="sa:roleAffiliation" resource="http://science.ai/"></a>
 			</li>
 		</ol>
-	
+
 		<ol>
 			<a href="https://www.info.uaic.ro/bin/Main/">
 				<span property="schema:name">Facultatea de Informatica Iasi, Universitatea Alexandru Ioan Cuza</span>
@@ -55,20 +55,23 @@
 
 	<section typeof="sa:Abstract" id="cuprins">
 		<h2>Cuprins</h2>
-		<p>1.Descriere</p>
-		<p>2.Tehnologii utilizate</p>
-		<p>3.Interfata aplicatiei</p>
+		<p>1. Descriere</p>
+		<p>2. Tehnologii utilizate</p>
+		<p>3. Interfata aplicatiei</p>
+		<p>4. Interactiunea utilizator-aplicatie</p>
+		<p>5. Interfata aplicatiei</p>
+		<p>6. Testare</p>
 	</section>
-    
+
 	<section typeof="sa:MaterialsAndMethods" id="descriere">
 		<h2>Descriere</h2>
 		<aside typeof="schema:WPSideBar">
 			<p>FII Invaders dezvolta la nivel de browser Web jocul clasic Space Invaders plasat însă în contextul Facultăţii de Informatică. Interacţiunea cu utilizatorul va adopta şi folosirea unui dispozitiv fizic: Arduino.</p>
-			
+
 			<p>Space Invaders este un joc video arcade dezvoltat de Tomohiro Nishikado care a fost lansat în 1978. Inițial a fost produs și vândut de Taito în Japonia, mai târziu divizia Midway de la Bally a fost licențiată pentru producția jocului în Statele Unite. Space Invaders este unul din primele shooting games și misiunea este să reziști cât mai mult invaziei unor nave extraterestre folosind un tun-cu-laser. În proiectarea acestui joc, Nishikado s-a inspirat din mai multe produse media cum ar fi jocul arcade Breackout, romanul Razboiul lumilor sau franciza Razboiul stelelor.</p>
 		</aside>
 	</section>
-	
+
 	<section typeof="sa:MaterialsAndMethods" id="tehnologii">
         <h2>Tehnologii utilizate</h2>
 		<aside typeof="schema:WPSideBar">
@@ -76,11 +79,112 @@
 			<p>Node.js - runtime environment</p>
 			<p>Javascript - Front End </p>
         </aside>
-      
-		<h2>Interfata aplicatiei</h2>
+
+		<h2>Interactiunea utilizator-aplicatie</h2>
+			<p>Pentru utilizarea aplicatiei este necesara o versiune de web browser (recomandarea noastra este Google Chrome, testata v62.0.3202). In pagina principala a aplicatiei se afla jocul propriu zis. Initial este incarcat un menu(vezi .pdf, fig. Main Manu). Pentru a naviga in menu, putem folosi sagetile sus/jos, si tasta enter pentru a selecta optiunea dorita. Dupa selectarea unei optiuni, vor aparea diferite informatii:</p>
+
+			<ul>
+				<li>
+					<p>New Game - Va incarca jocul propriu zis. In figura ‘Game’ din .pdf, se pot observa diferite zone:</p>
+					<ul>
+						<li>
+    						<span property="schema:Wireframe_NewGame_Score">Score - vor fi oferite informatii despre scorul jucatorului;</span>
+						</li>
+
+						<li>
+							<span property="schema:Wireframe_NewGame_Lives">Lives - vor fi oferite informatii despre vietile jucatorului;</span>
+						</li>
+
+						<li>
+							<span property="schema:Wireframe_NewGame_Invaders">Invaders - vor fi generati invadatorii spatiului;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_NewGame_Buildings">Buildings - vor fi generate cladiri;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_NewGame_Turret">Turret - va fi generat caracterul jucatorului;</span>
+						</li>
+					</ul>
+				</li><br>
+
+				<li>
+					<p>Options - oferta posibilitarea de a schimba diferite setari ale jocului, cum ar fi:</p>
+					<ul>
+    					<li>
+							<span property="schema:Wireframe_Options_Sound">Sound - opreste/porneste sunetele din timpul jocului;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_Options_Keyboard">Keyboard - ofera un menu (Keyboard) pentru a schimba tastele utilizate in actiuni asupra jocului (miscari stanga/dreapta, si tras cu arma);</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_Options_Music">Music - opreste/porneste o melodie de fundal din timpul jocului;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_Options_Back">Back - revine la Main Menu;</span>
+						</li>
+					</ul>
+				</li><br>
+
+				<li>
+					<p>High Score - oferta un top al celor mai buni jucatori, in functie de scorul acestora;</p>
+				</li>
+
+				<li>
+					<p>Keyboard - ofera posibilitatea de a schimba tastele prin care jucatorul interactioneaza cu jocul:</p>
+					<ul>
+						<li>
+    						<span property="schema:Wireframe_Keyboard_Left">Left - tasta utilizata pentru a muta tureta la stanga;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_Keyboard_Right">Right - tasta utilizata pentru a muta tureta la dreapta;</span>
+    					</li>
+
+						<li>
+							<span property="schema:Wireframe_Keyboard_Shoot">Shoot - tasta utilizata pentru a impusca cu tureta;</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<aside typeof="schema:WPSideBar">
+				<img class="ourImage" src="images/index.png">
+			</aside>
+
+<!-- Wireframe -->
+		<h3>Wireframe<h3>
 		<aside typeof="schema:WPSideBar">
-			<img src="images/index.png" style="width:700px;height:400px">
+			<img class="ourImage" src="images/wireframe.png">
 		</aside>
+
+<!-- Interfata aplicatie -->
+		<h2>Interfata aplicatiei</h2>
+			<p>Pentru generarea invadatorilor, a cladirilor, a turetei, gloantelor, si a vietilor ramase, s-au folosit cuburi 3D din libraria ThreeJS. Fiecare ‘subiect’ a fost generat intr-o matrice de dimensiuni variate, ce contine 0 si 1, astfel:</p>
+			<ul>
+				<li>
+					0 - pe pozitia respectiva nu se afla cub;
+				</li>
+				<li>
+					1 - pe pozitia respectiva, se afla un cub;
+				</li>
+			</ul>
+    		<p>Pentru fiecare caracter al jocului, s-au folosit culori diferite din paleta de culori disponibila <a href="https://coolors.co/00ba66-71f79f-ffe74c-ef2d56-ed7d3a">aici</a>, pentru a deosebi mai usor caracterele.</p>
+		<aside typeof="schema:WPSideBar">
+			<img class="ourImage" src="images/app.png">
+		</aside>
+
+<!-- Testing -->
+		<h2>Testing</h2>
+		<p>Pentru testare s-a implementat un sandbox. Aici se pot alege si testa fiecare asset pe care il folosim in aplicatie. Acest lucru a ajutat dezvoltarea codului pe parcurs.</p>
+		<p>Pentru a testa interfata ‘subiectilor’, se poate merge in localhost:3000/tests/ (unde se gasesc toate asset-urile folosite).</p>
+		<aside typeof="schema:WPSideBar">
+			<img class="ourImage" src="images/tests.png">
+		</aside>
+
 	</section>
   </body>
 </html>
