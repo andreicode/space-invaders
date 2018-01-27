@@ -79,13 +79,13 @@ Scene.register({
             Scene.load('main-menu');
         }
 
-        if(Input.isPressed('ArrowLeft')) {
+        if(Input.isPressed('ArrowLeft') || Input.isPressed("button-3")) {
             if (this.scene._store.turret.position.x > -110) {
                 this.scene._store.turret.position.x -= 4;
             }
         }
 
-        if(Input.isPressed('ArrowRight')) {
+        if(Input.isPressed('ArrowRight') || Input.isPressed("button-1")) {
             if (this.scene._store.turret.position.x < 120) {
                 this.scene._store.turret.position.x += 4;
             }
