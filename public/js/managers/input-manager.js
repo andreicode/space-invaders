@@ -31,7 +31,7 @@ var Input = {
         var listenGamepads = setInterval(pollGamepads, 100);
 
         function pollGamepads() {
-            console.log(_this.store);
+            // console.log(_this.store);
             var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
 
             for (var i = 0; i < gamepads.length; i++) {

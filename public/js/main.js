@@ -31,7 +31,7 @@ var cube = undefined;
 * Methods
 */
 function createCamera() {
-    return new THREE.PerspectiveCamera( 75, WIDTH / HEIGHT, 0.1, 1000 );
+    return new THREE.PerspectiveCamera( 75, WIDTH / HEIGHT, 1, 300 );
 }
 
 function createControls(camera) {
@@ -42,6 +42,7 @@ function createRenderer() {
     var renderer = new THREE.WebGLRenderer(
         {
             canvas: __canvas,
+            precision: 'lowp',
         }
     );
 
@@ -65,7 +66,10 @@ function start() {
     __controls.enablePan = false;
     __controls.enableRotate = false;
 
-    Scene.load('main-menu');
+    // Scene.load('main-menu');
+    Scene.load('game');
+
+    logicUpdate();
     game();
 }
 
@@ -75,10 +79,17 @@ function start() {
 */
 function game() {
     requestAnimationFrame(game);
-    Scene.active._update();
+    // Scene.active._update();
     __controls.update();
     __renderer.render(Scene.active.scene, __camera);
 }
+
+function logicUpdate() {
+    Scene.active._update();
+    setTimeout(logicUpdate,1000/30);
+}
+
+
 
 
 init();

@@ -10,6 +10,7 @@ function CreateScene(options) {
             }
 
             this.update();
+            this.scene.updateMatrixWorld();
             for (var i = 0; i < this.scene.children.length; i++) {
                 if (typeof this.scene.children[i].update === 'function') {
                     this.scene.children[i].update();
