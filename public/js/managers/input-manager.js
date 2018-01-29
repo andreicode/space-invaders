@@ -1,7 +1,5 @@
 function InputManager() {
-
     var _keys = [];
-
 
 
     return {
@@ -31,6 +29,7 @@ var Input = {
         var listenGamepads = setInterval(pollGamepads, 100);
 
         function pollGamepads() {
+
             var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
 
             for (var i = 0; i < gamepads.length; i++) {
@@ -60,12 +59,14 @@ var Input = {
         }
 
         document.addEventListener('keydown', function (e) {
+            if(e.key == 'Alt' ) return;
             for (var i = 0; i < _this.store.length; i++) {
                 if (e.key === _this.store[i]) {
                     return;
                 }
             }
             _this.store.push(e.key)
+            console.log(_this.store);
         });
 
         document.addEventListener('keyup', function (e) {
@@ -77,9 +78,6 @@ var Input = {
         });
     },
     isPressed: function (key) {
-
-        //console.log(this.store);
-
         var codeKey = Cache.get(key);
         var controllerCodeKey = Cache.get(key + '_CONTROLLER');
 

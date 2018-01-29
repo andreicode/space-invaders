@@ -18,7 +18,7 @@ var Cache = {
         }
 
         if(!window.localStorage.getItem('SHOOT')) {
-            window.localStorage.setItem('SHOOT', 'Space');
+            window.localStorage.setItem('SHOOT', ' ');
         }
 
         if (!window.localStorage.getItem('LEFT_CONTROLLER')) {
@@ -30,11 +30,15 @@ var Cache = {
         }
 
         if(!window.localStorage.getItem('SHOOT_CONTROLLER')) {
-            window.localStorage.setItem('SHOOW_CONTROLLER', 'button-5');
+            window.localStorage.setItem('SHOOT_CONTROLLER', 'button-5');
         }
 
         if (!window.localStorage.getItem('SELECT')) {
             window.localStorage.setItem('SELECT', 'Enter');
+        }
+
+        if(!window.localStorage.getItem('ESCAPE')) {
+            window.localStorage.setItem('ESCAPE', 'Escape');
         }
     },
     set: function (key, value) {
@@ -43,6 +47,19 @@ var Cache = {
     get: function (key) {
         return window.localStorage.getItem(key);
     },
+    set2: function(id, value) {
+        switch(id) {
+            case 0:
+                window.localStorage.setItem('LEFT', value);
+                break;
+            case 1:
+                window.localStorage.setItem('RIGHT', value);
+                break;
+            case 3:
+                window.localStorage.setItem('SHOOT', value);
+                break;
+        }
+    }
 }
 
 Cache.init();
