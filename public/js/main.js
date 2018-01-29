@@ -66,9 +66,7 @@ function start() {
     __controls.enablePan = false;
     __controls.enableRotate = false;
 
-    // Scene.load('main-menu');
-    // Scene.load('game');
-    Scene.load('game-over');
+    Scene.load('main-menu');
 
     logicUpdate();
     game();

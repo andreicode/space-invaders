@@ -14,7 +14,7 @@ Assets.register({
         ];
 
         this.object._store.arr = [];
-        
+
 
         for (var i = 0; i < arr.length; i++) {
 
@@ -22,7 +22,7 @@ Assets.register({
 
             for (var j = 0; j < arr[i].length; j++) {
                 if (arr[i][j] === 1) {
-                    var mesh = Assets.create('block-component');
+                    var mesh = Assets.create('block-component', options);
                     mesh.position.x = j;
                     mesh.position.y = -i;
                     this.object.add(mesh);
@@ -33,6 +33,6 @@ Assets.register({
 
     },
     update: function () {
-        
+
     }
 });

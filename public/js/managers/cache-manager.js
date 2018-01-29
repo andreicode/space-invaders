@@ -44,14 +44,6 @@ var Cache = {
         if(!window.localStorage.getItem('HIGH_SCORE')) {
             window.localStorage.setItem('HIGH_SCORE', JSON.stringify([]));
         }
-        
-        if(!window.localStorage.getItem('SOUND')) {
-            window.localStorage.setItem('SOUND', 'ON');
-        }
-
-        if(!window.localStorage.getItem('MUSIC')) {
-            window.localStorage.setItem('MUSIC', 'OFF');
-        }
     },
     set: function (key, value) {
         window.localStorage.setItem(key, value);

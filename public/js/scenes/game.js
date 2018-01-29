@@ -76,7 +76,7 @@ Scene.register({
         this.scene._store.time = 0;
         this.scene._store.direction = 0;
 
-        // Music.play('spaceinvaders1.mp3');
+        Music.play('spaceinvaders1.mp3');
 
         this.scene._methods.createScore = function(number) {
 
@@ -98,7 +98,7 @@ Scene.register({
               return;
             }
 
-            var bullet = Assets.create('bullet-1');
+            var bullet = Assets.create('bullet-1', {color: '#c8f442'});
             bullet.position.x = this.scene._store.turret.position.x + 6.5;
             bullet.position.y = this.scene._store.turret.position.y + 10;
 
@@ -116,7 +116,7 @@ Scene.register({
           for(var i = 0; i < this.scene._store.playerBullets.length; i++) {
 
               var bullet = this.scene.getObjectById(this.scene._store.playerBullets[i]);
-              bullet.position.y += 5;
+              bullet.position.y += 8;
 
               var coll = false;
 
@@ -161,7 +161,7 @@ Scene.register({
 
           var shooter = this.scene._store.group.children[Math.floor(Math.random() * this.scene._store.group.children.length)];
 
-          var bullet = Assets.create('bullet-1');
+          var bullet = Assets.create('bullet-1', {color: '#f4414a'});
           var vector = new THREE.Vector3();
           vector.setFromMatrixPosition(shooter.matrixWorld);
           bullet.position.x = vector.x + 5;
@@ -180,7 +180,7 @@ Scene.register({
 
 
             var bullet = this.scene.getObjectById(this.scene._store.alienBullets[i]);
-            bullet.position.y -= 5;
+            bullet.position.y -= 8;
 
 
             var coll = false;
@@ -259,7 +259,7 @@ Scene.register({
         }
 
 
-        if(Input.isPressed(' ')) {
+        if(Input.isPressed('SHOOT')) {
             this.scene._methods.playerShoot();
         }
 
