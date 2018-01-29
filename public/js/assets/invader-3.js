@@ -21,7 +21,7 @@ Assets.register({
         this.object._store.arr = [];
         this.object._store.time = 0;
         this.object._store.state = 0;
-
+        this.object._store.score = 10;
 
         for (var i = 0; i < arr.length; i++) {
 

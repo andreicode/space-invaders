@@ -10,6 +10,5 @@ var __CONFIG = {
     'color-building': 0x00AF60,
     'font-size': 11,
     'font-size-header': 20,
-    'speed': 16,
-    'delay': 4,
+    'speed': 8,
 }
