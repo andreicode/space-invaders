@@ -22,6 +22,16 @@ Assets.register({
             this.object._store.labels[id].object.material.color.setHex(__CONFIG['color-primary']);
         }.bind(this);
 
+        this.object._methods.setChanging = function (id) {
+            this.object._store.labels[id].object.material.color.setHex(__CONFIG['color-changing']);
+            this.object._store.isChanging = true;
+        }.bind(this);
+
+        this.object._methods.unsetChanging = function (id) {
+            //this.object._store.labels[id].object.material.color.setHex(__CONFIG['color-accent']);
+            this.object._store.isChanging = false;
+        }.bind(this);
+
         this.object._methods.getCursor = function () {
             for (var i = 0; i < this.object._store.labels.length; i++) {
                 if (this.object._store.labels[i].cursor === true) {
@@ -100,25 +110,24 @@ Assets.register({
 
         this.object._methods.setActive(0);
         this.object._methods.throttleMove();
+        this.object._store.isChanging = false;
     },
     update: function() {
-        if (Input.isPressed('ArrowUp')) {
+        if (Input.isPressed('UP') && this.object._store.isChanging == false) {
             if (!this.object._store.moveTimeOut) {
                 this.object._methods.moveUp();
                 this.object._methods.throttleMove();
             }
-        } else if (Input.isPressed('ArrowDown')) {
+        } else if (Input.isPressed('DOWN') && this.object._store.isChanging == false) {
             if (!this.object._store.moveTimeOut) {
                 this.object._methods.moveDown();
                 this.object._methods.throttleMove();
             }
-        } else if(Input.isPressed('Enter')) {
+        } else if(Input.isPressed('SELECT') && this.object._store.isChanging == false) {
             if(!this.object._store.moveTimeOut) {
                 this.object._methods.selectItem();
                 this.object._methods.throttleMove();
             }
-
         }
     }
 });
-// } );
