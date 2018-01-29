@@ -47,13 +47,7 @@ Scene.register({
             posx += 60;
         }
 
-        var score = Assets.create('score');
-        score.position.y = 200;
-        score.position.x = -220;
-        score.scale.set(2,2,2);
-        score.rotateX(1);
-        this.scene.add(score);
-        this.scene._store.score = score;
+
 
         var lives = Assets.create('lives');
         lives.position.y = 250;
@@ -84,6 +78,22 @@ Scene.register({
 
         Music.play('spaceinvaders1.mp3');
 
+
+
+
+        this.scene._methods.createScore = function(number) {
+
+          var score = Assets.create('score', {score: number});
+          score.position.y = 200;
+          score.position.x = -220;
+          score.scale.set(2,2,2);
+          score.rotateX(1);
+          this.scene.add(score);
+          this.scene._store.score = score;
+
+        }.bind(this);
+
+        this.scene._methods.createScore(0);
 
         this.scene._methods.playerShoot = function () {
 
@@ -137,9 +147,9 @@ Scene.register({
 
               if (coll) {
                 this.scene._store.group.remove(coll);
-                console.log(coll._store.score);
-                // this.scene._store.score.remove()
-                // this.scene._store.score.remove(this.scene._store.score.childern[1]);
+                var newScore = parseInt(this.scene._store.score._store.points) + parseInt(coll._store.score);
+                this.scene.remove(this.scene._store.score);
+                this.scene._methods.createScore(newScore);
               }
 
               if (bullet.position.y > 290 || coll) {

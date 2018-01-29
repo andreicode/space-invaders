@@ -3,7 +3,7 @@ Assets.register({
     init: function(options) {
 
         this.object._store = {};
-        this.object._store.points = 0;
+        this.object._store.points = options.score;
         this.object._store.score_text;
         this.object._store.score_value;
 
@@ -13,7 +13,7 @@ Assets.register({
         });
 
         score_value = Assets.create('text-label', {
-            text: '0',
+            text: options.score,
             color: __CONFIG['color-primary'],
         });
 
@@ -24,7 +24,7 @@ Assets.register({
 
         this.object.add(score_text);
         this.object.add(score_value);
-        
+
 
         // for(var i = 0; i < options.labels.length; i++) {
         //     this.object._store.labels[i] = {
