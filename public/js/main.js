@@ -68,6 +68,7 @@ function start() {
 
     // Scene.load('main-menu');
     Scene.load('game');
+    // Scene.load('game-over');
 
     logicUpdate();
     game();

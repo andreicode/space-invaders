@@ -76,10 +76,7 @@ Scene.register({
         this.scene._store.time = 0;
         this.scene._store.direction = 0;
 
-        Music.play('spaceinvaders1.mp3');
-
-
-
+        // Music.play('spaceinvaders1.mp3');
 
         this.scene._methods.createScore = function(number) {
 
@@ -98,9 +95,6 @@ Scene.register({
         this.scene._methods.playerShoot = function () {
 
             if (!this.scene._store.playerCanShoot) {
-
-
-
               return;
             }
 
@@ -168,8 +162,10 @@ Scene.register({
           var shooter = this.scene._store.group.children[Math.floor(Math.random() * this.scene._store.group.children.length)];
 
           var bullet = Assets.create('bullet-1');
-          bullet.position.x = shooter.position.x - 110.5;
-          bullet.position.y = shooter.position.y + 20;
+          var vector = new THREE.Vector3();
+          vector.setFromMatrixPosition(shooter.matrixWorld);
+          bullet.position.x = vector.x + 5;
+          bullet.position.y = vector.y - 10;
           bullet._store.removed = 0;
 
 
@@ -208,8 +204,6 @@ Scene.register({
             }
 
             /** COLLISION WITH SHIELD */
-
-
 
             for (var j = 0 ; j < this.scene._store.buildings.length; j++) {
               var building = this.scene._store.buildings[j];
@@ -272,27 +266,27 @@ Scene.register({
         this.scene._methods.updatePlayerBullets();
         this.scene._methods.updateAlienBullets();
 
-        // if (this.scene._store.time === 100) {
-        //     if (this.scene._store.direction === 0) {
-        //         this.scene._store.direction = 1;
-        //     } else {
-        //
-        //         this.scene._store.direction = 0;
-        //     }
-        //     this.scene._store.time = 0;
-        // }
-        //
-        // if (this.scene._store.group.position.x < -180) {
-        //     this.scene._store.direction = 1;
-        //     this.scene._store.group.position.y -= 1;
-        // } else if (this.scene._store.group.position.x > -50) {
-        //     this.scene._store.direction = 0;
-        //     this.scene._store.group.position.y -= 1;
-        // }
+        if (this.scene._store.time === 100) {
+            if (this.scene._store.direction === 0) {
+                this.scene._store.direction = 1;
+            } else {
+
+                this.scene._store.direction = 0;
+            }
+            this.scene._store.time = 0;
+        }
+
+        if (this.scene._store.group.position.x < -180) {
+            this.scene._store.direction = 1;
+            this.scene._store.group.position.y -= 1;
+        } else if (this.scene._store.group.position.x > -50) {
+            this.scene._store.direction = 0;
+            this.scene._store.group.position.y -= 1;
+        }
 
         this.scene._store.time += 1;
         if(this.scene._store.time  === __CONFIG['speed']) {
-            // this.scene._store.group.position.x += this.scene._store.direction === 0 ? -10 : 10;
+            this.scene._store.group.position.x += this.scene._store.direction === 0 ? -10 : 10;
             this.scene._store.steps += 1;
             this.scene._store.time = 0;
 
@@ -302,9 +296,27 @@ Scene.register({
 
         }
 
-        if (this.scene._store.group.position.y < -50) {
-          console.log('GAME OVER');
-        }
+        /**
+         * Check if the game is over in 3 ways
+         */
+         if (this.scene._store.lives.children.length === 0 || this.scene._store.group.children.length === 0) {
+
+             console.log('gameOver1212');
+         }
+
+         for (var i = 0; i < this.scene._store.group.children.length; i++) {
+
+             var alien = this.scene._store.group.children[i];
+             var vector = new THREE.Vector3();
+             vector.setFromMatrixPosition(alien.matrixWorld);
+             if (vector.y < -35) {
+
+                 console.log('gameOVER');
+             }
+
+         }
+
+
 
     },
 });
