@@ -11,4 +11,5 @@ var __CONFIG = {
     'font-size': 11,
     'font-size-header': 20,
     'speed': 16,
+    'delay': 4,
 }
