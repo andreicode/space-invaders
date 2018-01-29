@@ -31,7 +31,6 @@ var Input = {
         var listenGamepads = setInterval(pollGamepads, 100);
 
         function pollGamepads() {
-            console.log(_this.store);
             var gamepads = navigator.getGamepads ? navigator.getGamepads() : (navigator.webkitGetGamepads ? navigator.webkitGetGamepads : []);
 
             for (var i = 0; i < gamepads.length; i++) {
@@ -56,7 +55,6 @@ var Input = {
                             }
                         }
                     }
-                    //clearInterval(listenGamepads);
                 }
             }
         }
@@ -79,11 +77,18 @@ var Input = {
         });
     },
     isPressed: function (key) {
+
+        //console.log(this.store);
+
+        var codeKey = Cache.get(key);
+        var controllerCodeKey = Cache.get(key + '_CONTROLLER');
+
         for (var i = 0; i < this.store.length; i++) {
-            if (key === this.store[i]) {
+            if (codeKey === this.store[i] || controllerCodeKey === this.store[i]) {
                 return true;
             }
         }
+
         return false;
     }
 }

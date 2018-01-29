@@ -9,15 +9,15 @@ Scene.register({
         var menu = Assets.create('menu-group', {
             labels: [
                 {
-                    text: 'Left: ' + 'Left Arrow',
+                    text: 'Left: ' + window.localStorage.getItem('LEFT'), //'Left Arrow',
                     scene: undefined
                 },
                 {
-                    text: 'Right: ' + 'Right Arrow',
+                    text: 'Right: ' + window.localStorage.getItem('RIGHT'),
                     scene: undefined,
                 },
-                {   
-                    text: 'Shoot: ' + 'Space',
+                {
+                    text: 'Shoot: ' + window.localStorage.getItem('SHOOT'),
                     scene: undefined
                 },
                 {
@@ -25,11 +25,11 @@ Scene.register({
                     scene: 'main-menu'
                 }
             ]
-        
+
         });
-        menu.position.x = -50; 
+        menu.position.x = -50;
         menu.position.y = 0;
-        
+
         this.scene.add(header);
         this.scene.add(menu);
 

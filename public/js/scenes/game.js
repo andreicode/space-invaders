@@ -71,7 +71,7 @@ Scene.register({
         this.scene._store.time = 0;
         this.scene._store.direction = 0;
 
-        Music.play('spaceinvaders1.mp3');
+        //Music.play('spaceinvaders1.mp3');
     },
     update: function () {
         if(Input.isPressed('Escape')) {
@@ -79,13 +79,13 @@ Scene.register({
             Scene.load('main-menu');
         }
 
-        if(Input.isPressed('ArrowLeft') || Input.isPressed("button-3")) {
+        if(Input.isPressed('LEFT') || Input.isPressed("button-3")) {
             if (this.scene._store.turret.position.x > -110) {
                 this.scene._store.turret.position.x -= 4;
             }
         }
 
-        if(Input.isPressed('ArrowRight') || Input.isPressed("button-1")) {
+        if(Input.isPressed('RIGHT') || Input.isPressed("button-1")) {
             if (this.scene._store.turret.position.x < 120) {
                 this.scene._store.turret.position.x += 4;
             }

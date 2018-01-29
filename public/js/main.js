@@ -65,7 +65,7 @@ function start() {
     __controls.enablePan = false;
     __controls.enableRotate = false;
 
-    Scene.load('main-menu');
+    Scene.load('keyboard');
     game();
 }
 
