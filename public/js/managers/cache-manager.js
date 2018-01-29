@@ -40,6 +40,10 @@ var Cache = {
         if(!window.localStorage.getItem('ESCAPE')) {
             window.localStorage.setItem('ESCAPE', 'Escape');
         }
+
+        if(!window.localStorage.getItem('HIGH_SCORE')) {
+            window.localStorage.setItem('HIGH_SCORE', JSON.stringify([]));
+        }
     },
     set: function (key, value) {
         window.localStorage.setItem(key, value);

@@ -4,12 +4,16 @@ Scene.register({
         this.scene._store = {};
         this.scene._methods = {};
 
+
         var header = Assets.create('header', {text: 'Game Over'});
         header.position.x = -110;
         header.position.y = 40;
 
+        var lastScore = Cache.get('LAST_SCORE');
+        this.scene._store.lastScore = lastScore;
+
         var score = Assets.create('text-label', {
-            text: 'Score: ' + '0',
+            text: 'Score: ' + lastScore,
             color: __CONFIG['color-primary'],
         });
 
@@ -20,11 +24,15 @@ Scene.register({
 
         this.scene._store.letterCount = 0;
         this.scene._store.canGetInput = true;
+        this.scene._store.name = '';
+
         this.scene._methods.getInput = function (key) {
 
         if (!this.scene._store.canGetInput) {
           return;
         }
+
+        this.scene._store.name += key;
 
         var letter = Assets.create('text-label', {
             text: key,
@@ -48,7 +56,8 @@ Scene.register({
     },
     update: function () {
 
-        if (Input.isPressed('Enter') && this.scene._store.letterCount > 2) {
+        if (Input.isPressed('SELECT') && this.scene._store.letterCount > 2) {
+            HighScore.process(this.scene._store.name, this.scene._store.lastScore);
             Scene.load('main-menu');
         }
 

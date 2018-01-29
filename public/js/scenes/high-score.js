@@ -6,26 +6,25 @@ Scene.register({
         header.position.x = -110;
         header.position.y = 50;
 
-        var menu = Assets.create('menu-group', {
-            labels: [
-                {
-                    text: '1. Karina 100',
-                    scene: undefined
-                },
-                {
-                    text: '2. Andrei 90',
-                    scene: undefined,
-                },
-                {
-                    text: '3. Petru 80',
-                    scene: undefined
-                },
-                {
-                    text: 'Back',
-                    scene: 'main-menu'
-                }
-            ]
+        var highScore = HighScore.get();
+        var labels = [];
 
+        for (var i = 0; i < highScore.length; i++) {
+
+            labels.push({
+                text: '' + i + '. ' + highScore[i].name + ' ' + highScore[i].score,
+                scene: undefined,
+            });
+
+        };
+
+        labels.push({         
+                text: 'Back',
+                scene: 'main-menu'
+        });
+
+        var menu = Assets.create('menu-group', {
+            labels: labels,
         });
         menu.position.x = -50;
         menu.position.y = 0;

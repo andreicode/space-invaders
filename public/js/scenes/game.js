@@ -300,8 +300,8 @@ Scene.register({
          * Check if the game is over in 3 ways
          */
          if (this.scene._store.lives.children.length === 0 || this.scene._store.group.children.length === 0) {
-
-             console.log('gameOver1212');
+             Cache.set('LAST_SCORE', this.scene._store.score._store.points);
+             Scene.load('game-over');
          }
 
          for (var i = 0; i < this.scene._store.group.children.length; i++) {
@@ -310,8 +310,8 @@ Scene.register({
              var vector = new THREE.Vector3();
              vector.setFromMatrixPosition(alien.matrixWorld);
              if (vector.y < -35) {
-
-                 console.log('gameOVER');
+                 Cache.set('LAST_SCORE', this.scene._store.score._store.points);
+                 Scene.load('game-over');
              }
 
          }
