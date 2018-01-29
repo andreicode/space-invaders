@@ -41,8 +41,17 @@ var Cache = {
             window.localStorage.setItem('ESCAPE', 'Escape');
         }
 
+<<<<<<< HEAD
         if(!window.localStorage.getItem('HIGH_SCORE')) {
             window.localStorage.setItem('HIGH_SCORE', JSON.stringify([]));
+=======
+        if(!window.localStorage.getItem('SOUND')) {
+            window.localStorage.setItem('SOUND', 'ON');
+        }
+
+        if(!window.localStorage.getItem('MUSIC')) {
+            window.localStorage.setItem('MUSIC', 'OFF');
+>>>>>>> caf2d70be4163291b18f058503eeed167c45eb48
         }
     },
     set: function (key, value) {
