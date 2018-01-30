@@ -4,7 +4,7 @@ var HighScore = {
 
         highScore.push({name: name, score: score});
         highScore.sort(function (a, b) {
-            return parseInt(a.score) > parseInt(b.score);
+            return parseInt(a.score) < parseInt(b.score);
         });
 
         highScore = highScore.slice(0,3);
