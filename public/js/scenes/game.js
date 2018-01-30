@@ -98,6 +98,8 @@ Scene.register({
               return;
             }
 
+            Music.sound('shoot.mp3');
+
             var bullet = Assets.create('bullet-1', {color: '#c8f442'});
             bullet.position.x = this.scene._store.turret.position.x + 6.5;
             bullet.position.y = this.scene._store.turret.position.y + 10;
@@ -134,6 +136,7 @@ Scene.register({
                   if (distance < 5) {
 
                       coll = group[j];
+                      Music.sound('invaderkilled.mp3');
                       break;
 
                   }
@@ -246,13 +249,13 @@ Scene.register({
             Scene.load('main-menu');
         }
 
-        if(Input.isPressed('LEFT') || Input.isPressed("LEFT_CONTROLLER")) {
+        if(Input.isPressed('LEFT')) {
             if (this.scene._store.turret.position.x > -110) {
                 this.scene._store.turret.position.x -= 6;
             }
         }
 
-        if(Input.isPressed('RIGHT') || Input.isPressed("RIGHT_CONTROLLER")) {
+        if(Input.isPressed('RIGHT')) {
             if (this.scene._store.turret.position.x < 120) {
                 this.scene._store.turret.position.x += 6;
             }

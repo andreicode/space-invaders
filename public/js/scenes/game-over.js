@@ -58,6 +58,7 @@ Scene.register({
 
         if (Input.isPressed('SELECT') && this.scene._store.letterCount > 2) {
             HighScore.process(this.scene._store.name, this.scene._store.lastScore);
+            Music.stop('spaceinvaders1.mp3');
             Scene.load('main-menu');
         }
 

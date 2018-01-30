@@ -2,77 +2,98 @@ var menu;
 
 Scene.register({
     name: 'keyboard',
-    init: function () {
-        var header = Assets.create('header', {text: 'Keyboard'});
+    init: function() {
+        var header = Assets.create('header', {
+            text: 'Keyboard'
+        });
         this.scene._store = {};
+        this.scene._methods = {};
+
         header.position.x = -100;
         header.position.y = 50;
 
-        menu = Assets.create('menu-group', {
-            labels: [
-                {
-                    text: 'Left: ' + window.localStorage.getItem('LEFT'),
-                    scene: undefined
-                },
-                {
-                    text: 'Right: ' + window.localStorage.getItem('RIGHT'),
-                    scene: undefined,
-                },
-                {
-                    text: 'Shoot: ' + window.localStorage.getItem('SHOOT'),
-                    scene: undefined
-                },
-                {
-                    text: 'Back',
-                    scene: 'main-menu'
-                }
-            ]
-
-        });
-        menu.position.x = -50;
-        menu.position.y = 0;
-
         this.scene.add(header);
-        this.scene.add(menu);
+
+        this.scene._methods.createMenu = function () {
+
+            this.scene._store.menu = Assets.create('menu-group', {
+                labels: [{
+                        text: 'Left: ' + window.localStorage.getItem('LEFT'),
+                        scene: undefined
+                    },
+                    {
+                        text: 'Right: ' + window.localStorage.getItem('RIGHT'),
+                        scene: undefined,
+                    },
+                    {
+                        text: 'Shoot: ' + window.localStorage.getItem('SHOOT'),
+                        scene: undefined
+                    },
+                    {
+                        text: 'Back',
+                        scene: 'main-menu'
+                    }
+                ]
+
+            });
+
+            this.scene._store.menu.position.x = -50;
+            this.scene._store.menu.position.y = 0;
+            this.scene.add(this.scene._store.menu);
+
+        }.bind(this);
+
+
+
         this.scene._store.isChanging = false;
-        this.scene._store.pause = false;
+        this.scene._store.selection = 0;
+        this.scene._store.pause = true;
+        this.scene._methods.createMenu();
+
+        setTimeout(function() {
+            this.scene._store.pause = false;
+        }.bind(this), 400);
+
 
     },
-    changeKey: function() {
-
-
-    },
-
-    update: function () {
-        if(this.scene._store.pause == true) return;
+    update: function() {
+        if (this.scene._store.pause == true) return;
 
         if (Input.isPressed('ESCAPE')) {
             Scene.load('main-menu');
         }
 
-        if (Input.isPressed('SELECT') && this.scene._store.isChanging == false) {
-            this.scene._store.isChanging = true;
-            var selection = menu._methods.getCursor();
-            menu._methods.setChanging(selection);
+        if (Input.isPressed('SELECT') && this.scene._store.isChanging === false) {
+            this.scene._store.selection = this.scene._store.menu._methods.getCursor();
 
-            this.scene._store.pause = true;
-                        setTimeout( function () {
-                            this.scene._store.pause = false;
-                            console.log('timeout');
-                        }.bind(this), 1000);
+            if (this.scene._store.selection < 3) {
 
+                this.scene._store.isChanging = true;
 
-            console.log(selection);
-            // return;
+                this.scene._store.menu._methods.setChanging(this.scene._store.selection);
+
+                this.scene._store.pause = true;
+                setTimeout(function() {
+                    this.scene._store.pause = false;
+                }.bind(this), 400);
+
+                return;
+            }
+
         }
 
-        if(this.scene._store.isChanging === true && this.scene._store.pause === true) {
-            var id = menu._methods.getCursor();
-            newKey = Input.store[0];
-            menu._methods.unsetChanging(id);
-            Cache.set2(id, newKey);
+        if (this.scene._store.isChanging === true && Input.store.length) {
+            var newKey = Input.store[0];
+            this.scene._store.menu._methods.unsetChanging(this.scene._store.selection);
+            Cache.set2(this.scene._store.selection, newKey);
             this.scene._store.isChanging = false;
-            // menu._methods.setChanging(selection); // Schimba ceva prin menu-group. Culoare text + isChanging
+
+            setTimeout(function () {
+
+                this.scene.remove(this.scene._store.menu);
+                this.scene._methods.createMenu();
+
+            }.bind(this), 100);
         }
     }
 });

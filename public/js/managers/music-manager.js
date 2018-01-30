@@ -1,4 +1,4 @@
-var Music = {
+ var Music = {
     music: undefined,
     play: function(title) {
         if(Cache.get('MUSIC') === 'ON') {
@@ -18,6 +18,12 @@ var Music = {
         if(Cache.get('MUSIC') === 'ON') {
             this.music.currentTime = 0;
             this.music.play();
+        }
+    },
+    sound: function (title) {
+        if(Cache.get('SOUND') === 'ON') {
+            var sound = new Audio('music/' + title);
+            sound.play();
         }
     }
 }

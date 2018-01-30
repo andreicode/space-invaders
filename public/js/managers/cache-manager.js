@@ -18,7 +18,7 @@ var Cache = {
         }
 
         if(!window.localStorage.getItem('SHOOT')) {
-            window.localStorage.setItem('SHOOT', ' ');
+            window.localStorage.setItem('SHOOT', 's');
         }
 
         if (!window.localStorage.getItem('LEFT_CONTROLLER')) {
@@ -60,6 +60,7 @@ var Cache = {
         return window.localStorage.getItem(key);
     },
     set2: function(id, value) {
+        // console.log(id)
         switch(id) {
             case 0:
                 window.localStorage.setItem('LEFT', value);
@@ -67,7 +68,7 @@ var Cache = {
             case 1:
                 window.localStorage.setItem('RIGHT', value);
                 break;
-            case 3:
+            case 2:
                 window.localStorage.setItem('SHOOT', value);
                 break;
         }

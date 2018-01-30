@@ -12,13 +12,13 @@ Scene.register({
         for (var i = 0; i < highScore.length; i++) {
 
             labels.push({
-                text: '' + i + '. ' + highScore[i].name + ' ' + highScore[i].score,
+                text: '' + (i+1) + '. ' + highScore[i].name + ' ' + highScore[i].score,
                 scene: undefined,
             });
 
         };
 
-        labels.push({         
+        labels.push({
                 text: 'Back',
                 scene: 'main-menu'
         });
