@@ -22,7 +22,7 @@ var Cache = {
         }
 
         if (!window.localStorage.getItem('LEFT_CONTROLLER')) {
-            window.localStorage.setItem('LEFT_CONTROLLER', 'button-3');
+            window.localStorage.setItem('LEFT_CONTROLLER', 'button-2');
         }
 
         if(!window.localStorage.getItem('RIGHT_CONTROLLER')) {

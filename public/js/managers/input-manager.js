@@ -35,7 +35,7 @@ var Input = {
             for (var i = 0; i < gamepads.length; i++) {
                 var gamepad = gamepads[i];
                 if (gamepad) {
-                    for(var idx = 1; idx < 6; idx += 2) {
+                    for(var idx = 1; idx < 6; idx += 1) {
                         var button = gamepad.buttons[idx];
 
                         if(button.pressed) {
@@ -44,6 +44,8 @@ var Input = {
                                     return;
                                 }
                             }
+
+                            console.log(("button-" + idx));
                             _this.store.push(("button-" + idx));
                         }
                         else {
