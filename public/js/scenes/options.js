@@ -1,56 +1,94 @@
-var menu;
 Scene.register({
     name: 'options',
     init: function () {
 
-        var header = Assets.create('header', {text: 'Options'});
-        header.position.x = -80;
+        var header = Assets.create('header', {
+            text: 'Options'
+        });
+        this.scene._store = {};
+        this.scene._methods = {};
+
+        header.position.x = -100;
         header.position.y = 50;
 
-        menu = Assets.create('menu-group', {
-            labels: [
-                {
-                    text: 'Sound: ' + window.localStorage.getItem('SOUND'),
-                    scene: undefined
-                },
-                {
-                    text: 'Keyboard',
-                    scene: 'keyboard',
-                },
-                {
-                    text: 'Music: ' + window.localStorage.getItem('MUSIC'),
-                    scene: undefined
-                },
-                {
-                    text: 'Back',
-                    scene: 'main-menu'
-                }
-            ]
-
-        });
-        menu.position.x = -50;
-        menu.position.y = 0;
-
         this.scene.add(header);
-        this.scene.add(menu);
 
+        this.scene._methods.createMenu = function () {
+
+            this.scene._store.menu = Assets.create('menu-group', {
+                labels: [
+                    {
+                        text: 'Sound: ' + Cache.get('SOUND'),
+                        scene: undefined
+                    },
+                    {
+                        text: 'Keyboard',
+                        scene: 'keyboard',
+                    },
+                    {
+                        text: 'Music: ' + Cache.get('MUSIC'),
+                        scene: undefined
+                    },
+                    {
+                        text: 'Back',
+                        scene: 'main-menu'
+                    }
+                ]
+            });
+
+            this.scene._store.menu.position.x = -50;
+            this.scene._store.menu.position.y = 0;
+            this.scene.add(this.scene._store.menu);
+
+        }.bind(this);
+
+        this.scene._store.isChanging = false;
+        this.scene._store.pause = true;
+        this.scene._methods.createMenu();
+
+        setTimeout(function() {
+            this.scene._store.pause = false;
+        }.bind(this), 400);
     },
-    // changeOption: function (id, status) {
-    //     if(id == 0) { // SOUND
-    //
-    //     }
-    //     else if(id == 1) {
-    //         // window.localStorage.set('MUSIC', status);
-    //     }
-    // },
     update: function () {
-        if(Input.isPressed('SELECT') && menu._methods.getCursor() == 0) {
-            //changeOption(0, window.localStorage.getItem('SOUND') === 'NO' ? 'YES' : 'NO');
-            Cache.set('SOUND', window.localStorage.getItem('SOUND') === 'ON' ? 'OFF' : 'ON');
+        if (this.scene._store.pause == true) return;
+
+        if(Input.isPressed('SELECT') && this.scene._store.menu._methods.getCursor() == 0) {
+            Cache.set('SOUND', Cache.get('SOUND') === 'ON' ? 'OFF' : 'ON');
+
+            this.scene._store.menu._methods.setChanging(0);
+
+            this.scene._store.pause = true;
+
+            setTimeout(function() {
+                this.scene.remove(this.scene._store.menu);
+                this.scene._methods.createMenu();
+
+                this.scene._store.pause = false;
+            }.bind(this), 200);
+
+            return;
         }
-        if(Input.isPressed('SELECT') && menu._methods.getCursor() == 2) {
-            //changeOption(1, window.localStorage.getItem('MUSIC') === 'NO' ? 'YES' : 'NO');
-            Cache.set('MUSIC', window.localStorage.getItem('MUSIC') === 'ON' ? 'OFF' : 'ON');
+
+        if(Input.isPressed('SELECT') && this.scene._store.menu._methods.getCursor() == 2) {
+            Cache.set('MUSIC', Cache.get('MUSIC') === 'ON' ? 'OFF' : 'ON');
+            this.scene._store.menu._methods.setChanging(2);
+
+            this.scene._store.pause = true;
+
+            setTimeout(function() {
+                this.scene.remove(this.scene._store.menu);
+                this.scene._methods.createMenu();
+
+                this.scene._store.menu._methods.moveDown();
+                this.scene._store.menu._methods.throttleMove();
+                this.scene._store.menu._methods.moveDown();
+                this.scene._store.menu._methods.throttleMove();
+
+                this.scene._store.pause = false;
+            }.bind(this), 200);
+
+            return;
         }
     }
 });
