@@ -81,9 +81,7 @@ Scene.register({
                 this.scene._methods.createMenu();
 
                 this.scene._store.menu._methods.moveDown();
-                this.scene._store.menu._methods.throttleMove();
                 this.scene._store.menu._methods.moveDown();
-                this.scene._store.menu._methods.throttleMove();
 
                 this.scene._store.pause = false;
             }.bind(this), 200);
